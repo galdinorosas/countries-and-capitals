@@ -1,0 +1,24 @@
+{
+  "name": "countriesandcapitals",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "galdinorosas <dino.rosas@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-animate": "^1.5.2",
+    "angular-route": "^1.5.2",
+    "angular-bootstrap": "^1.2.4"
+  }
+}

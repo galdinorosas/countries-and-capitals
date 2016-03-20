@@ -1,0 +1,29 @@
+<h1 ng-model="country">
+	{{country}}
+</h1>
+
+<div class="jumbotron countriesInfoContainer">
+	<div class="container countryDetails">
+		<div class="row">
+			<div class="col-xs-6">Population of Country:</div>
+			<div class="col-xs-6" ng-model="population">{{population | number: 0}}</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">Area:</div>
+			<div class="col-xs-6" ng-model="area">{{area | number: 0}}</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">Capital:</div>
+			<div class="col-xs-6" ng-model="capital">{{capital}}</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">Population of Capital:</div>
+			<div class="col-xs-6" ng-model="capitalPopulation">{{capitalPopulation}}</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">Neighbors:</div>
+			<div class="col-xs-6" ng-model="neighbors">{{neighbors}}</div>
+		</div>
+	</div>
+</div>
+

@@ -26,7 +26,7 @@ nav{
 		font-size: 2em;
 	}
 
-	.homeBtn{
+	.countriesBtn{
 		width: 10em;
 		height: 2.5em;
 		margin: 0 auto;
@@ -35,3 +35,45 @@ nav{
 }
 
 
+.countriesTable{
+	width:90%;
+	height: 40em;
+	margin: 0 auto;
+}
+
+.homeBtn{
+		display: block;
+		margin: 0 auto;
+		// width: 10em;
+		// height:2em;
+	}
+
+h1{
+	text-align: center;
+	width: 100%;
+}
+
+.countriesInfoContainer{
+	width:60em;
+	height: 40em;
+	margin: 0 auto;
+	border-radius: 12px;
+	.countryDetails{
+		background-color: blue;
+		width:30em;
+		height: 80%;
+		float: right;
+		font-size: 1.2em;
+		padding-top: 5em;
+		.col-xs-6:first-child{
+			text-align: right;
+			width: 12em;
+		}
+		.col-xs-6:nth-child(2){
+			width: 18em;
+		}
+		.col-xs-6{
+			margin-top: 1em;
+		}
+	}
+}

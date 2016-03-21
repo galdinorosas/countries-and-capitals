@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col-xs-6">Neighbors:</div>
-            <div class="col-xs-6" ng-hide="noNeighbors"><a class="neighbors" ng-href="#!/countries/{{n.countryName}}/capital" ng-repeat="n in neighbors">{{n.countryName}}</a></div>
+            <div class="col-xs-6" ng-if="!noNeighbors"><a class="neighbors" ng-href="#!/countries/{{n.countryName}}/capital" ng-repeat="n in neighbors">{{n.countryName}}</a></div>
             <div class="col-xs-6" ng-if="noNeighbors">0</div>
         </div>
     </div>

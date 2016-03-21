@@ -18,11 +18,12 @@ myViews.config(['$routeProvider', function($routeProvider) {
             $scope.imgCountryCode = $scope.countryCode.countryCode.toLowerCase();
             capitalInfo.neighbors($scope.countryCode.countryCode).then(function(res) {
                 console.log('res', res);
-                if (res.data.geonames === undefined) {
+                if (res.data.geonames === undefined || res.data.geonames.length === 0) {
                     $scope.noNeighbors = true;
                 } else {
-                    $scope.noNeighbors = false;
                     $scope.neighbors = res.data.geonames;
+                    $scope.noNeighbors = false;
+
                 }
 
                 $rootScope.isLoading = false;

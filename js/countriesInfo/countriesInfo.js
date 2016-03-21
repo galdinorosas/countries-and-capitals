@@ -4,38 +4,43 @@ myViews.config(['$routeProvider', function($routeProvider) {
             controller: 'countryInfoCtrl'
         });
     }])
-    .controller('countryInfoCtrl', ['$scope', '$routeParams', '$location', 'listRequest','capitalInfo','$rootScope', function($scope, $routeParams, $location, listRequest, capitalInfo,$rootScope) {
+    .controller('countryInfoCtrl', ['$scope', '$routeParams', '$location', 'listRequest', 'capitalInfo', '$rootScope', function($scope, $routeParams, $location, listRequest, capitalInfo, $rootScope) {
 
         $scope.country = $routeParams.country;
         var countryname = $scope.country;
 
-        listRequest.getResults().then(function(response){
+        listRequest.getResults().then(function(response) {
             var filRes = listRequest.filterResults(response);
             $scope.details = listRequest.getDetails(filRes, countryname);
 
 
-            $scope.countryCode = listRequest.getCountryCode(response,countryname);
+            $scope.countryCode = listRequest.getCountryCode(response, countryname);
             $scope.imgCountryCode = $scope.countryCode.countryCode.toLowerCase();
-            capitalInfo.neighbors($scope.countryCode.countryCode).then(function(res){
+            capitalInfo.neighbors($scope.countryCode.countryCode).then(function(res) {
                 console.log('res', res);
-                if(res.data.geonames.length===0){
-                  
+                if (res.data.geonames === undefined) {
+
                     $scope.noNeighbors = true;
-                }
-                else{
+                } else {
                     $scope.noNeighbors = false;
                     $scope.neighbors = res.data.geonames;
                 }
-                
+
                 $rootScope.isLoading = false;
             });
 
 
-            capitalInfo.capital($scope.details.capital).then(function(capitalResponse){
-                $scope.capitalPopulation = capitalResponse.data.geonames[0].population;
+            capitalInfo.capital($scope.details.capital).then(function(capitalResponse) {
+                console.log('capitalResponse', capitalResponse);
+                if (capitalResponse.data.geonames.length === 0) {
+                    $scope.capitalPopulation = '0';
+                } else {
+                    $scope.capitalPopulation = capitalResponse.data.geonames[0].population;
+                }
+
             });
 
-        }, function(reject){
+        }, function(reject) {
 
             console.log('error');
         });

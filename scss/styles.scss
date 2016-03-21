@@ -97,26 +97,39 @@ h1 {
 }
 
 .loading {
-  position:relative;
-  height:100%;
+    position: relative;
+    height: 100%;
 }
+
 .loading:before {
-  position:absolute;
-  content:"";
-  left:0;
-  bottom:0;
-  right:0;
-  top:0;
-  z-index:1000;
-  background:rgba(255,255,255,0.9) no-repeat center center;
-  background-image: url('loading-animation.gif');
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9) no-repeat center center;
+    background-image: url('loading-animation.gif');
 }
 
 .animate.ng-enter,
-    .animate.ng-leave {
-        transition:1s linear all;
-    }
-.animate.ng-enter { opacity:0; }
-.animate.ng-enter.ng-enter-active { opacity:1; }
-.animate.ng-leave { opacity:1; }
-.animate.ng-leave.ng-leave-active { opacity:0; }
+.animate.ng-leave {
+    transition: 1s linear all;
+}
+
+.animate.ng-enter {
+    opacity: 0;
+}
+
+.animate.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.animate.ng-leave {
+    opacity: 1;
+}
+
+.animate.ng-leave.ng-leave-active {
+    opacity: 0;
+}

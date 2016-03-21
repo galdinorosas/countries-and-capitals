@@ -34,6 +34,7 @@ myViews.config(['$routeProvider', function($routeProvider) {
                 console.log('capitalResponse', capitalResponse);
                 if (capitalResponse.data.geonames.length === 0) {
                     $scope.capitalPopulation = '0';
+                    $scope.details.capital = 'none';
                 } else {
                     $scope.capitalPopulation = capitalResponse.data.geonames[0].population;
                 }

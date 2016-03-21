@@ -106,7 +106,7 @@ angular.module('myAppLibrary', [])
                 method: 'GET',
                 url: NEIGHBORS_URL,
                 params: {
-                    country: code,
+                    country: cID,
                     username: 'galdinorosas'
                 }
             });

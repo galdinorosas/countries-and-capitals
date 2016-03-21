@@ -16,7 +16,7 @@ myViews.config(['$routeProvider', function($routeProvider) {
 
             $scope.countryCode = listRequest.getCountryCode(response,countryname);
             $scope.imgCountryCode = $scope.countryCode.countryCode.toLowerCase();
-            capitalInfo.neighbors($scope.countryCode).then(function(res){
+            capitalInfo.neighbors($scope.countryCode.countryCode).then(function(res){
                 $scope.neighbors = res.data.geonames;
                 $rootScope.isLoading = false;
             });

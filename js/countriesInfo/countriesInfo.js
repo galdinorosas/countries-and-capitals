@@ -17,7 +17,16 @@ myViews.config(['$routeProvider', function($routeProvider) {
             $scope.countryCode = listRequest.getCountryCode(response,countryname);
             $scope.imgCountryCode = $scope.countryCode.countryCode.toLowerCase();
             capitalInfo.neighbors($scope.countryCode.countryCode).then(function(res){
-                $scope.neighbors = res.data.geonames;
+                console.log('res', res);
+                if(res.data.geonames.length===0){
+                  
+                    $scope.noNeighbors = true;
+                }
+                else{
+                    $scope.noNeighbors = false;
+                    $scope.neighbors = res.data.geonames;
+                }
+                
                 $rootScope.isLoading = false;
             });
 

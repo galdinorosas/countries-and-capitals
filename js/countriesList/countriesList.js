@@ -5,16 +5,19 @@ myViews.config(['$routeProvider', function($routeProvider) {
         });
 
     }])
-    .controller('listCtrl', ['listRequest', 'cache', '$scope', '$location', function(listRequest, cache, $scope, $location) {
+    .controller('listCtrl', ['listRequest', 'cache', '$scope', '$location','$rootScope', function(listRequest, cache, $scope, $location, $rootScope) {
        
         $scope.gridOptions = {};
         $scope.gridOptions.enableFiltering = true;
-        listRequest.then(function(response) {
+        listRequest.getResults().then(function(response) {
    
             console.log(response);
-            $scope.gridOptions.data = response;
+            console.log('filtered',listRequest.filterResults(response));
+            $scope.gridOptions.data = listRequest.filterResults(response);
             $scope.gridOptions.columnDefs = [{ name: 'countryName', cellTemplate: '<div>'+'<a href="#!/countries/{{row.entity.countryName}}/capital">{{row.entity.countryName}}</a>'+'</div>' }, { name: 'countryCode' }, { name: 'capital' }, { name: 'areaSqKm' , cellFilter:'number: 0'}, { name: 'population', cellFilter:'number: 0' }, { name: 'continent' }];
-
+            $rootScope.isLoading = false;
+        }, function(reject){
+            console.log('failed');
         });
 
         $scope.go = function(path) {

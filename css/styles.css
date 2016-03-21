@@ -14,28 +14,27 @@ nav {
 
 .homeContainer {
   width: 70%;
-  height: 30em;
-  margin: 0 auto;
-  background-color: blue; }
+  height: 20em;
+  margin: 0 auto; }
   .homeContainer .homeMsg {
     width: 100%;
     height: 12em;
-    margin: 5em auto;
+    margin: 3em auto;
     font-size: 2em; }
   .homeContainer .countriesBtn {
     width: 10em;
     height: 2.5em;
-    margin: 0 auto;
+    margin: -7em auto;
     display: block; }
 
 .countriesTable {
   width: 90%;
-  height: 40em;
+  height: 37em;
   margin: 0 auto; }
 
 .homeBtn {
   display: block;
-  margin: 0 auto; }
+  margin: 1em auto; }
 
 h1 {
   text-align: center;
@@ -43,16 +42,16 @@ h1 {
 
 .countriesInfoContainer {
   width: 60em;
-  height: 40em;
+  height: 35em;
   margin: 0 auto;
   border-radius: 12px; }
   .countriesInfoContainer .countryDetails {
-    background-color: blue;
     width: 30em;
     height: 80%;
     float: right;
     font-size: 1.2em;
-    padding-top: 5em; }
+    padding-top: 2em;
+    margin: 2em -5em 0em 0em; }
     .countriesInfoContainer .countryDetails .col-xs-6:first-child {
       text-align: right;
       width: 12em; }
@@ -60,3 +59,52 @@ h1 {
       width: 18em; }
     .countriesInfoContainer .countryDetails .col-xs-6 {
       margin-top: 1em; }
+    .countriesInfoContainer .countryDetails .neighbors {
+      display: block;
+      text-decoration: none; }
+  .countriesInfoContainer input {
+    display: inline-block; }
+  .countriesInfoContainer .countryFlag,
+  .countriesInfoContainer .countryMap {
+    width: 20em;
+    height: 15em;
+    margin: 0em 2em 0em 5em; }
+
+.infoHomeBtn,
+.infoCountriesBtn {
+  display: inline-block;
+  margin: 0em 0em 2em 0em; }
+
+.infoHomeBtn {
+  margin: 0em 0em 0em 40%; }
+
+.loading {
+  position: relative;
+  height: 100%; }
+
+.loading:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9) no-repeat center center;
+  background-image: url("loading-animation.gif"); }
+
+.animate.ng-enter,
+.animate.ng-leave {
+  transition: 1s linear all; }
+
+.animate.ng-enter {
+  opacity: 0; }
+
+.animate.ng-enter.ng-enter-active {
+  opacity: 1; }
+
+.animate.ng-leave {
+  opacity: 1; }
+
+.animate.ng-leave.ng-leave-active {
+  opacity: 0; }

@@ -5,4 +5,10 @@ angular.module('myApp', ['myAppViews','ui.grid','ui.bootstrap','ngRoute', 'ngAni
     		redirectTo:'/'
     	});
 
-    }]);
+    }])
+    .run(['$rootScope',function($rootScope) {
+		    $rootScope.$on('$routeChangeStart', function() {
+		        $rootScope.isLoading = true;
+		    });
+
+		}]);

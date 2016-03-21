@@ -4,42 +4,36 @@ myViews.config(['$routeProvider', function($routeProvider) {
             controller: 'countryInfoCtrl'
         });
     }])
-    .controller('countryInfoCtrl', ['$scope', '$routeParams', '$location', 'listRequest','capitalInfo', function($scope, $routeParams, $location, listRequest, capitalInfo) {
+    .controller('countryInfoCtrl', ['$scope', '$routeParams', '$location', 'listRequest','capitalInfo','$rootScope', function($scope, $routeParams, $location, listRequest, capitalInfo,$rootScope) {
 
         $scope.country = $routeParams.country;
-
         var countryname = $scope.country;
 
-        capitalInfo(function(countryname){
-
-        }).then(function(response){
-        	console.log(response);
-        });
-       	console.log('1st test',$scope.capitalInfo);
+        listRequest.getResults().then(function(response){
+            var filRes = listRequest.filterResults(response);
+            $scope.details = listRequest.getDetails(filRes, countryname);
 
 
-        console.log('2nd test',$scope.capitalInfo);
+            $scope.countryCode = listRequest.getCountryCode(response,countryname);
+            $scope.imgCountryCode = $scope.countryCode.countryCode.toLowerCase();
+            capitalInfo.neighbors($scope.countryCode).then(function(res){
+                $scope.neighbors = res.data.geonames;
+                $rootScope.isLoading = false;
+            });
 
-        listRequest.then(function(response) {
-            $scope.countriesList = response;
-            console.log(response);
-        }).then(function() {
 
-            for (var i = 0; i < $scope.countriesList.length; i++) {
-                if ($scope.countriesList[i].countryName === $scope.country) {
-                    $scope.population = $scope.countriesList[i].population;
-                    $scope.area = $scope.countriesList[i].areaSqKm;
-                    $scope.capital = $scope.countriesList[i].capital;
-                    $scope.capitalPopulation = 'N/A';
-                    $scope.neighbors = 'N/A';
-                }
+            capitalInfo.capital($scope.details.capital).then(function(capitalResponse){
+                $scope.capitalPopulation = capitalResponse.data.geonames[0].population;
+            });
 
-            }
-            console.log($scope.countriesList);
+        }, function(reject){
 
+            console.log('error');
         });
 
-        console.log($scope.country);
+        $scope.go = function(path) {
+            $location.path(path);
+        };
 
 
 

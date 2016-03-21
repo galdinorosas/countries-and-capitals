@@ -9,17 +9,18 @@ myViews.config(['$routeProvider', function($routeProvider) {
 
         $scope.gridOptions = {};
         $scope.gridOptions.enableFiltering = true;
-        listRequest.getResults().then(function(response) {
+        listRequest.getResults().then(function(res){
+            console.log('res',res);
 
-            console.log(response);
-            console.log('filtered', listRequest.filterResults(response));
-            $scope.gridOptions.data = listRequest.filterResults(response);
+            $scope.gridOptions.data = listRequest.filterResults(res);
             $scope.gridOptions.columnDefs = [{ name: 'countryName', cellTemplate: '<div>' + '<a href="#!/countries/{{row.entity.countryName}}/capital">{{row.entity.countryName}}</a>' + '</div>' }, { name: 'countryCode' }, { name: 'capital' }, { name: 'areaSqKm', cellFilter: 'number: 0' }, { name: 'population', cellFilter: 'number: 0' }, { name: 'continent' }];
             $rootScope.isLoading = false;
-
-        }, function(reject) {
-            console.log('failed');
+        }, function(rej){
+            console.log('error no response');
         });
+            
+
+      
 
         $scope.go = function(path) {
             $location.path(path);

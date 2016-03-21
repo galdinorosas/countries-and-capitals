@@ -19,7 +19,6 @@ myViews.config(['$routeProvider', function($routeProvider) {
             capitalInfo.neighbors($scope.countryCode.countryCode).then(function(res) {
                 console.log('res', res);
                 if (res.data.geonames === undefined) {
-
                     $scope.noNeighbors = true;
                 } else {
                     $scope.noNeighbors = false;

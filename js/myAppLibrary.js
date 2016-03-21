@@ -16,9 +16,11 @@ angular.module('myAppLibrary', [])
                 params: {
                     username: 'galdinorosas'
                 },
-                resonseType: 'json'
+                resonseType: 'json',
+                cache: true
 
             });
+
         };
 
         factory.getCountryCode = function(countriesList, countryName) {

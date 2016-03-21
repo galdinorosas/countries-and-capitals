@@ -81,7 +81,7 @@ angular.module('myAppLibrary', [])
 
 
     }])
-    .factory('capitalInfo', ['$http', 'CAPITAL_INFO_URL', '$q','NEIGHBORS_URL', function($http, CAPITAL_INFO_URL, $q,NEIGHBORS_URL) {
+    .factory('capitalInfo', ['$http', 'CAPITAL_INFO_URL', '$q', 'NEIGHBORS_URL', function($http, CAPITAL_INFO_URL, $q, NEIGHBORS_URL) {
 
         var factory = {};
 
@@ -100,12 +100,13 @@ angular.module('myAppLibrary', [])
         };
 
         factory.neighbors = function(cID) {
-            console.log('cid',cID.countryCode);
+            console.log('cid', cID.countryCode);
+            var code = cID.countryCode;
             return $http({
                 method: 'GET',
                 url: NEIGHBORS_URL,
                 params: {
-                    country: cID.countryCode,
+                    country: code,
                     username: 'galdinorosas'
                 }
             });

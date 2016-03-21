@@ -21,9 +21,7 @@
         </div>
         <div class="row">
             <div class="col-xs-6">Neighbors:</div>
-            <!-- 			<div class="col-xs-6" >{{details.neighbors}}</div>
- -->
-            <div class="col-xs-6"><a class="neighbors" href="#!/countries/{{n.countryName}}/capital" ng-repeat="n in neighbors">{{n.countryName}}</a></div>
+            <div class="col-xs-6"><a class="neighbors" ng-href="#!/countries/{{n.countryName}}/capital" ng-repeat="n in neighbors">{{n.countryName}}</a></div>
         </div>
     </div>
     <img class="countryFlag" ng-src="http://www.geonames.org/flags/x/{{imgCountryCode}}.gif" />

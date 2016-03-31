@@ -9,7 +9,6 @@ myViews.config(['$routeProvider', function($routeProvider) {
 
         $scope.go = function(path) {
             $location.path(path);
-            console.log('go works');
         };
         $rootScope.isLoading = false;
 

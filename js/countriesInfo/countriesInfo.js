@@ -4,7 +4,7 @@ myViews.config(['$routeProvider', function($routeProvider) {
             controller: 'countryInfoCtrl'
         });
     }])
-    .controller('countryInfoCtrl', ['$scope', '$routeParams', '$location', 'listRequest', 'capitalInfo', '$rootScope', function($scope, $routeParams, $location, listRequest, capitalInfo, $rootScope) {
+    .controller('countryInfoCtrl', ['$scope', '$routeParams', 'listRequest', 'capitalInfo', '$rootScope', function($scope, $routeParams, listRequest, capitalInfo, $rootScope) {
 
         $scope.country = $routeParams.country;
         var countryname = $scope.country;
@@ -45,11 +45,5 @@ myViews.config(['$routeProvider', function($routeProvider) {
 
             console.log('error');
         });
-
-        $scope.go = function(path) {
-            $location.path(path);
-        };
-
-
 
     }]);

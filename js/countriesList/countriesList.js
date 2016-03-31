@@ -20,10 +20,8 @@ myViews.config(['$routeProvider', function($routeProvider) {
         });
             
 
-      
-
-        $scope.go = function(path) {
-            $location.path(path);
-        };
+        // $scope.go = function(path) {
+        //     $location.path(path);
+        // };
 
     }]);

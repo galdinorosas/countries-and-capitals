@@ -6,9 +6,13 @@ angular.module('myApp', ['myAppViews', 'ui.grid', 'ui.bootstrap', 'ngRoute', 'ng
         });
 
     }])
-    .run(['$rootScope', function($rootScope) {
+    .run(['$rootScope','$location', function($rootScope,$location) {
         $rootScope.$on('$routeChangeStart', function() {
             $rootScope.isLoading = true;
         });
+
+        $rootScope.go = function(path) {
+            $location.path(path);
+        };
 
     }]);

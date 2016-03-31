@@ -72,6 +72,7 @@ angular.module('myAppLibrary', [])
                     detailsObj.capital = countriesList[i].capital;
                     detailsObj.capitalPopulation = 'N/A';
                     detailsObj.neighbors = 'N/A';
+                    break;
                 }
             }
             return detailsObj;
@@ -97,7 +98,8 @@ angular.module('myAppLibrary', [])
                     name_equals: capitalName,
                     isNameRequired: true,
                     username: 'galdinorosas'
-                }
+                },
+                cache: true
             });
         };
 
@@ -110,7 +112,8 @@ angular.module('myAppLibrary', [])
                 params: {
                     country: cID,
                     username: 'galdinorosas'
-                }
+                },
+                cache: true
             });
         };
 

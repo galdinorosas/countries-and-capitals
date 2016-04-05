@@ -1,6 +1,8 @@
 body {
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+
 }
 
 nav {
@@ -27,8 +29,7 @@ nav {
         line-height: 2em;
     }
     .countriesBtn {
-        width: 10em;
-        height: 2.5em;
+
         margin: -7em auto;
         display: block;
     }
@@ -40,9 +41,10 @@ nav {
     margin: 0 auto;
 }
 
-.homeBtn {
-    display: block;
+button.homeBtn {
     margin: 1em auto;
+    display: block;
+    
 }
 
 h1 {
@@ -88,14 +90,13 @@ h1 {
     }
 }
 
-.infoHomeBtn,
-.infoCountriesBtn {
-    display: inline-block;
-    margin: 0em 0em 2em 0em;
-}
-
 .infoHomeBtn {
     margin: 0em 0em 0em 40%;
+}
+
+button.infoHomeBtn,
+button.infoCountriesBtn{
+    margin-bottom: 2em;
 }
 
 .loading {
